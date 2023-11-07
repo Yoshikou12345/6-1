@@ -1,8 +1,14 @@
-<h1>ログイン</h1>
 <% if flash[:error] %>
   <p><%= flash[:error] %></p>
 <% end %>
 <%= form_tag sessions_create_path, method: :post do %>
+  <div>
+    <%#= label_tag 'message'%>
+    <%#= text_field_tag :uid %> <%#= submit_tag 'ツイート'%>
+  </div>
+  
+  <%#= link_to 'いいね', sessions_destroy_path, method: :delete %>
+  
   <div>
     <%= label_tag 'ユーザーID' %>
     <%= text_field_tag :uid %>
@@ -10,8 +16,8 @@
   <div>
     <%= label_tag 'パスワード' %>
     <%= password_field_tag :pass %>
+    <%= label_tag 'パスワード（確認）'%>
+    <%= password_field_tag :pass %>
   </div>
   <%= submit_tag 'ログイン' %>
 <% end %>
-
-<%= link_to 'ログアウト', sessions_destroy_path, method: :delete %>
